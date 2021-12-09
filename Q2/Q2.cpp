@@ -15,11 +15,15 @@ int main()
 		printf("child process could not be created");
 		exit(-1);
 	}
-	else if (a == 0)
+	else if (a == 0)// If value returned from fork()
+            // is 0 that means
+            // this is child process.
 	{
 		printf("Child process : My ID is %d\n", getpid());
 	}
-	else
+	else // If value returned from fork()
+            // in not zero and >0 that means
+            // this is parent process.
 	{
 		printf("Parent process : My ID is %d\n", getpid());
 	}
