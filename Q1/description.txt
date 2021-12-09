@@ -1,0 +1,35 @@
+Shortest Job First (SJF)
+
+
+-> Shortest Job First (SJF) is an algorithm in which the process having the smallest execution time is chosen for the next execution. 
+-> Consider, If there are 4 Processes(from the output file)
+   P1 P2 P3 P4
+   with arrival and burst time for 
+      P1: 1 and 3
+      P2: 2 and 4
+      P3: 1 and 2
+      P4: 4 and 4
+ ->At time 0, no execution takes place
+     0<<   <<1
+ ->At time 1, both P2 and P3 can take place, since it is SJF algorthm P3 will takes place since it's burst time is less than P2's
+     0<<   <<1<< P3 <<3
+ ->At time 3, both P1 and P2 can take place, since it is SJF algorthm P1 will takes place since it's burst time is less than P2's
+     0<<   <<1<< P3 <<3<< P1 <<6
+ ->At time 6, both P2 and P4 can take place, since both of it its burst time are same, the process which arrived first will take place, ie, P2
+     0<< nil  <<1<< P3 <<3<< P1 <<6<< P2 <<10
+ ->At time 10, P4 will take place
+     0<< nil  <<1<< P3 <<3<< P1 <<6<< P2 <<10<< P4 <<14
+     
+  ->Turn Around time = Completion Time - Arrival Time
+  ->Waiting time = Turn Around time - Burst time
+ 
+ In the code, it happens as follows, 
+ 
+ 1.After sorting according to arrival time, we sort processes according to burst time, in case, the arrival time is same.
+ 2. After the sorting process is complete, the operations are performed to calculate completion time, turn around time and waiting time.
+ 3. For the first process, the completion time is initialised as the sum of burst time and arrival time of the first process.
+ 4. For further processes, we first check if the arrival time of next process is greater than the completion time of previous process.
+ 5. If so, then the completion time is the sum of arrival time of the process and the burst time.
+ 6. Else, the completion time is the sum of completion time of previous process and the burst time of current process.
+ 7. Further the turn around time and waiting time of processes are calculated considering turn around time as the difference of completion time and arrival time of the given process. Also, the waiting time is calculated as the difference of turn around time and butst time of the current process.
+
