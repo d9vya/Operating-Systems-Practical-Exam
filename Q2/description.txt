@@ -1,0 +1,8 @@
+Write a program to demonstrate fork where parent and child run different codes and parent process should be executed first.
+
+-> fork() is used to create processes.
+-> Process that used the fork() system call is the parent process and process consequently created is known as the child process.
+-> If fork() returns a negative value, the creation of a child process was unsuccessful.
+-> If fork() returns a zero then child process is created.
+-> If fork() returns a positive value, parent process is created. 
+-> On the success of a fork() system call, the PID of the child process is returned to the parent process and 0 is returned to the child process
